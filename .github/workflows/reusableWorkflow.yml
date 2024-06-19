@@ -24,7 +24,7 @@ jobs:
           java-version: 8
       - name: Publish to Exchange
         run: |
-          mvn deploy --settings .maven/settings.xml \
+          mvn deploy --settings .maven/settings.xml -DskipMunitTests \
           -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
           -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}"
 
@@ -44,7 +44,7 @@ jobs:
           ${{ runner.os }}-maven-       
     - name: Deploy to dev
       run: |
-        mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
+        mvn deploy --settings .maven/settings.xml -DmuleDeploy \
         -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
         -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
         -Ddecryption.key="${{ secrets.securekey }}" \
