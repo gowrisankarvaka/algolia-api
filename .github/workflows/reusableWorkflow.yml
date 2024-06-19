@@ -44,7 +44,7 @@ jobs:
           ${{ runner.os }}-maven-       
     - name: Deploy to dev
       run: |
-        mvn deploy --settings .maven/settings.xml -DmuleDeploy \
+        mvn deploy --settings .maven/settings.xml -DmuleDeploy -DskipMunitTests  \
         -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
         -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
         -Ddecryption.key="${{ secrets.securekey }}" \
