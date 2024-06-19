@@ -15,6 +15,11 @@
       <username>anthem.inc.nexus</username>
       <password>EFkljTsG</password>
     </server>
+    <server>
+      <id>mulesoft-releases</id>
+      <username>anthem.inc.nexus</username>
+      <password>EFkljTsG</password>
+    </server>
   </servers>
 
   <profiles>
