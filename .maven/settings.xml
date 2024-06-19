@@ -10,5 +10,33 @@
       <username>~~~Client~~~</username>
       <password>${client.id}~?~${client.secret}</password> <!-- these come from the build.yml and your github secrets -->
     </server>
+    <server>
+      <id>MuleRepository</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
   </servers>
+
+  <profiles>
+    <profile>
+      <id>Mule</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>MuleRepository</id>
+          <name>MuleRepository</name>
+          <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>     
+      </repositories>
+    </profile>
+  </profiles>
 </settings>
