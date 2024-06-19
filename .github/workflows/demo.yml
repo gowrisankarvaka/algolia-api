@@ -20,7 +20,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        server-id: mulesoft-releases  # This should match the ID in your settings.xml and pom.xml
+        server-id: MuleRepository  # This should match the ID in your settings.xml and pom.xml
         server-username: ${{ secrets.NEXUS_USERNAME }}
         server-password: ${{ secrets.NEXUS_PASSWORD }}
         
