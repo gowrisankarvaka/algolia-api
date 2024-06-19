@@ -33,7 +33,7 @@ jobs:
           ${{ runner.os }}-m2
 
     - name: Run MUnit tests
-      run: mvn clean test
+      run: mvn clean test -Dsecure.key=mule 
 
     - name: Publish test results
       if: always()
