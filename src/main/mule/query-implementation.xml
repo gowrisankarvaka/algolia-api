@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mu
 	
 	<sub-flow name="salesforceQueryimplementationSub_Flow" doc:id="2c1893fd-1096-45dc-85f3-2fe4bf361722" >
 		<salesforce:query-all doc:name="Query all" doc:id="7a1b9548-4c03-4dda-9ffc-ed39d0007715" config-ref="Salesforce_Config">
-			<salesforce:salesforce-query ><![CDATA[SELECT Id,Name__c,City__c,Pincode__c,State__c,Phone_Number__c FROM Address__c]]></salesforce:salesforce-query>
+			<salesforce:salesforce-query ><![CDATA[SELECT Id,pid__c,pname__c,price__c FROM products__c]]></salesforce:salesforce-query>
 		</salesforce:query-all>
 		<ee:transform doc:name="Transform Message" doc:id="aa723b19-332c-453c-ad6f-266a1356991c" >
 			<ee:message >
