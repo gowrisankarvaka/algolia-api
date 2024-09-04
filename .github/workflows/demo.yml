@@ -3,10 +3,10 @@ name: Deploy MuleSoft Application
 on:
   push:
     branches:
-      - ch2-test
+      - munits
   pull_request:
     branches:
-      - ch2-test
+      - munits
 
 
 jobs:
