@@ -88,13 +88,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>c105df25-e89b-4946-9fdf-6a4c5107c350</groupId>
-			<artifactId>algolia-api</artifactId>
-			<version>1.0.0</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.4</version>
