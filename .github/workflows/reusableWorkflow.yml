@@ -24,10 +24,7 @@ jobs:
           java-version: 8
       - name: Publish to Exchange
         run: |
-          mvn deploy --settings .maven/settings.xml -DskipMunitTests \
-          -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
-          -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}"
-
+          mvn deploy --settings .maven/settings.xml
 
   deploydev:
     needs: build
@@ -45,15 +42,7 @@ jobs:
           ${{ runner.os }}-maven-       
     - name: Deploy to dev
       run: |
-        mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
-        -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
-        -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
-        -Ddecryption.key="${{ secrets.securekey }}" \
-        -Dmule.env=dev \
-        -Denv=dev \
-        -Dappname=algolia-app-dev-ch2 \
-        -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
-        -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
+        mvn deploy --settings .maven/settings.xml
          
   deployqa:
     needs: deploydev
@@ -71,15 +60,7 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Deploy to qa
       run: |
-        mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
-        -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
-        -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
-        -Ddecryption.key="${{ secrets.securekey }}" \
-        -Dmule.env=qa \
-        -Denv=qa \
-        -Dappname=algolia-app-qa-ch2 \
-        -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
-        -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
+        mvn deploy --settings .maven/settings.xml 
   
   deployprod:
     needs: deployqa
@@ -97,13 +78,4 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Deploy to prod
       run: |
-        mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
-        -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
-        -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
-        -Ddecryption.key="${{ secrets.securekey }}" \
-        -Dmule.env=prod \
-        -Denv=prod \
-        -Dappname=algolia-app-prod-ch2 \
-        -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
-        -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
-         
+        mvn deploy --settings .maven/settings.xml 
