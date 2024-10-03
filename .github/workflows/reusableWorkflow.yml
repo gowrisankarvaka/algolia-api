@@ -68,7 +68,7 @@ jobs:
          -Danypoint.password=Gayathri@123 \
          -Ddecryption.key=mule \
          -Dmule.env=dev \
-         -Denv=dev \
+         -Denv=Sandbox \
          -Dappname=algolia-app-dev-111 \
          -Danypoint.platform.client_id=3e3cbec112734296993854c8e7972655 \
          -Danypoint.platform.client_secret=A0d2fa47f1EE497999Fc76eF0AD4Cda9
