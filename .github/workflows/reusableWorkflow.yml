@@ -64,8 +64,8 @@ jobs:
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
-         -Danypoint.username=GayathriOctober3 \
-         -Danypoint.password=Gayathri@123 \
+         -Danypoint.username=928c76d8ba0b4422863a79f6dd4756e5 \
+         -Danypoint.password=171ee964963847539F4ec674e97A0540 \
          -Ddecryption.key=mule \
          -Dmule.env=dev \
          -Denv=Sandbox \
