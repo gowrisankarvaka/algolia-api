@@ -11,5 +11,5 @@ on:
 
 jobs:
   call-workflow:
-    uses: GayathriNuthalapati/algolia-api/.github/workflows/reusableWorkflow.yml@demo
+    uses: gowrisankarvaka/algolia-api/.github/workflows/reusableWorkflow.yml@demo
     secrets: inherit
