@@ -63,15 +63,15 @@ jobs:
       run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
-         -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
-         -Ddecryption.key="${{ secrets.key }}" \
+         -Dmule.artifact=algolia-api \
+         -Danypoint.username=GayathriOctober3 \
+         -Danypoint.password=Gayathri@123 \
+         -Ddecryption.key=mule \
          -Dmule.env=dev \
          -Denv=dev \
          -Dappname=algolia-app-dev-111 \
-         -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
-         -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
+         -Danypoint.platform.client_id=3e3cbec112734296993854c8e7972655 \
+         -Danypoint.platform.client_secret=A0d2fa47f1EE497999Fc76eF0AD4Cda9
          
   # deployqa:
   #   needs: deploydev
