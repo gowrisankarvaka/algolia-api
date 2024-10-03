@@ -19,7 +19,6 @@
 		<!-- <mule.env>dev</mule.env> -->
 
 		<!-- <secure.mule.env>${mule.env}</secure.mule.env> <secure.mule.key>${mule.key}</secure.mule.key> -->
-
 		<!-- <runtime.manager.mule.env>${mule.env}</runtime.manager.mule.env> <runtime.manager.mule.key>${mule.key}</runtime.manager.mule.key> -->
 
 		<!-- <anypoint.platform.client_id>${platform.client_id}</anypoint.platform.client_id>
