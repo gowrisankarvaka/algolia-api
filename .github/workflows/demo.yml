@@ -8,7 +8,6 @@ on:
     branches:
       - ch2-test
 
-
 jobs:
   call-workflow:
     uses: GayathriNuthalapati/algolia-api/.github/workflows/reusableWorkflow.yml@ch2-test
