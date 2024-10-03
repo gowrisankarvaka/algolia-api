@@ -63,87 +63,87 @@ jobs:
       run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
-         -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
-         -Ddecryption.key="${{ secrets.key }}" \
-         -Dmule.env=dev \
-         -Denv=dev \
+         -Dmule.artifact=algolia-api\
+         -Danypoint.username=GayathriOctober3 \
+         -Danypoint.password=Gayathri@123 \
+         -Ddecryption.key=mule \
+         -Dmule.env=Sandbox \
+         # -Denv=dev \
          -Dappname=algolia-app-dev-111 \
-         -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
-         -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
+         -Danypoint.platform.client_id=3e3cbec112734296993854c8e7972655 \
+         -Danypoint.platform.client_secret=A0d2fa47f1EE497999Fc76eF0AD4Cda9
          
-  deployqa:
-    needs: deploydev
-    runs-on: ubuntu-latest
-    steps:    
-    - name: Checkout this repo
-      uses: actions/checkout@v3
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
-    - uses: actions/download-artifact@v3
-      with:
-        name: artifacts
-    - name: Deploy to qa
-      env:
-        USERNAME: ${{ secrets.connected_app_client_id }}
-        PASSWORD: ${{ secrets.connected_app_client_secret}}
-        KEY: ${{ secrets.key }}
-        API_ID: ${{secrets.dev_api_id}}
-        PLATFORM_CLIENT_ID: ${{secrets.org_client_id}}
-        PLATFORM_CLIENT_SECRET: ${{secrets.org_client_secret}}
-      run: |
-        artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy \
-         -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
-         -Ddecryption.key="$KEY" \
-         -Dmule.env=qa \
-         -Denv=qa \
-         -Dappname=algolia-app-qa-111 \
-         -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
-         -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
+  # deployqa:
+  #   needs: deploydev
+  #   runs-on: ubuntu-latest
+  #   steps:    
+  #   - name: Checkout this repo
+  #     uses: actions/checkout@v3
+  #   - name: Cache dependencies
+  #     uses: actions/cache@v3
+  #     with:
+  #       path: ~/.m2/repository
+  #       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+  #       restore-keys: |
+  #         ${{ runner.os }}-maven-
+  #   - uses: actions/download-artifact@v3
+  #     with:
+  #       name: artifacts
+  #   - name: Deploy to qa
+  #     env:
+  #       USERNAME: ${{ secrets.connected_app_client_id }}
+  #       PASSWORD: ${{ secrets.connected_app_client_secret}}
+  #       KEY: ${{ secrets.key }}
+  #       API_ID: ${{secrets.dev_api_id}}
+  #       PLATFORM_CLIENT_ID: ${{secrets.org_client_id}}
+  #       PLATFORM_CLIENT_SECRET: ${{secrets.org_client_secret}}
+  #     run: |
+  #       artifactName=$(ls *.jar | head -1)
+  #       mvn deploy -DmuleDeploy \
+  #        -Dmule.artifact=$artifactName \
+  #        -Danypoint.username="$USERNAME" \
+  #        -Danypoint.password="$PASSWORD" \
+  #        -Ddecryption.key="$KEY" \
+  #        -Dmule.env=qa \
+  #        -Denv=qa \
+  #        -Dappname=algolia-app-qa-111 \
+  #        -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
+  #        -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
   
-  deployprod:
-    needs: deployqa
-    runs-on: ubuntu-latest
-    steps:    
-    - name: Checkout this repo
-      uses: actions/checkout@v3
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
-    - uses: actions/download-artifact@v3
-      with:
-        name: artifacts
-    - name: Deploy to prod
-      env:
-        USERNAME: ${{ secrets.connected_app_client_id }}
-        PASSWORD: ${{ secrets.connected_app_client_secret}}
-        KEY: ${{ secrets.key }}
-        API_ID: ${{secrets.dev_api_id}}
-        PLATFORM_CLIENT_ID: ${{secrets.org_client_id}}
-        PLATFORM_CLIENT_SECRET: ${{secrets.org_client_secret}}
-      run: |
-        artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy \
-         -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
-         -Ddecryption.key="$KEY" \
-         -Dmule.env=prod \
-         -Denv=prod \
-         -Dappname=algolia-app-prod-111 \
-         -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
-         -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
+  # deployprod:
+  #   needs: deployqa
+  #   runs-on: ubuntu-latest
+  #   steps:    
+  #   - name: Checkout this repo
+  #     uses: actions/checkout@v3
+  #   - name: Cache dependencies
+  #     uses: actions/cache@v3
+  #     with:
+  #       path: ~/.m2/repository
+  #       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+  #       restore-keys: |
+  #         ${{ runner.os }}-maven-
+  #   - uses: actions/download-artifact@v3
+  #     with:
+  #       name: artifacts
+  #   - name: Deploy to prod
+  #     env:
+  #       USERNAME: ${{ secrets.connected_app_client_id }}
+  #       PASSWORD: ${{ secrets.connected_app_client_secret}}
+  #       KEY: ${{ secrets.key }}
+  #       API_ID: ${{secrets.dev_api_id}}
+  #       PLATFORM_CLIENT_ID: ${{secrets.org_client_id}}
+  #       PLATFORM_CLIENT_SECRET: ${{secrets.org_client_secret}}
+  #     run: |
+  #       artifactName=$(ls *.jar | head -1)
+  #       mvn deploy -DmuleDeploy \
+  #        -Dmule.artifact=$artifactName \
+  #        -Danypoint.username="$USERNAME" \
+  #        -Danypoint.password="$PASSWORD" \
+  #        -Ddecryption.key="$KEY" \
+  #        -Dmule.env=prod \
+  #        -Denv=prod \
+  #        -Dappname=algolia-app-prod-111 \
+  #        -Danypoint.platform.client_id="$PLATFORM_CLIENT_ID" \
+  #        -Danypoint.platform.client_secret="$PLATFORM_CLIENT_SECRET"
          
