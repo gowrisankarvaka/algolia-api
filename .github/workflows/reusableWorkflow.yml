@@ -63,7 +63,7 @@ jobs:
       run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
-         -Dmule.artifact=algolia-api \
+         -Dmule.artifact=algolia \
          -Danypoint.username=GayathriOctober3 \
          -Danypoint.password=Gayathri@123 \
          -Ddecryption.key=mule \
